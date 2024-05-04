@@ -1,0 +1,152 @@
+﻿@model Category[];
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eğitim Tanım</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Eğitim Formu</h5>
+                        <form method="post" id="educationForm" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="education">Eğitim</label>
+                                <input type="text" class="form-control" id="education" name="Name" placeholder="Eğitim Adı">
+                            </div>
+                            <div class="form-group">
+                                <label for="category">Kategori</label>
+                                <select class="form-control" id="category" name="CategoryId">
+                                    <option value="">Lütfen Seçiniz...</option>
+                                    @foreach (var category in Model)
+                                    {
+                                        <option value="@category.Id">@category.Name</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="educator">Eğitmen</label>
+                                <select class="form-control" id="educator" name="EductorID">
+                                    <option value="">Seçiniz</option>
+                                    <option value="1">İç Eğitmen</option>
+                                    <option value="2">Dış Eğitmen</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="quota">Kapasite</label>
+                                <input type="number" class="form-control" id="quota" name="Quota" placeholder="Kapasite">
+                            </div>
+                            <div class="form-group">
+                                <label for="cost">Maliyet</label>
+                                <input type="number" step="0.01" class="form-control" id="cost" name="Cost" placeholder="Maliyet">
+                            </div>
+                            <div class="form-group">
+                                <label for="time">Süre</label>
+                                <input type="text" class="form-control" id="time" name="Time" placeholder="Süre">
+                            </div>
+                            <div class="form-group">
+                                <label for="file">Dosya Ekle</label>
+                                <input type="file" class="form-control-file" id="file" name="Files" placeholder="Dosya">
+                            </div>
+                            <button id="saveButton" type="button" class="btn btn-primary">Kaydet</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+
+        $(document).ready(function () {
+            $('#saveButton').click(function () {
+                if (validateForm()) {
+                    var form = $('#educationForm')[0];
+                    var formData = new FormData(form);
+                    $.ajax({
+                        url: '/Home/SaveForm',
+                        type: 'POST',
+                        enctype: 'multipart/form-data',
+                        processData: false,
+                        contentType: false,
+                        data: formData,
+                        success: function (response) {
+                            Swal.fire("Kaydedildi!", "", "success").then(() => {
+                                location.reload();
+                            });
+                        },
+                        error: function (xhr, status, error) {
+                            Swal.fire("Hata!", "Kaydetme işlemi sırasında bir hata oluştu.", "error");
+                        }
+                    });
+                }
+            });
+        });
+
+        function validateForm() {
+            var egitimInput = $('#education');
+            var kategoriSelect = $('#category');
+            var egitmenSelect = $('#educator');
+            var kapasiteInput = $('#quota');
+            var maliyetInput = $('#cost');
+            var sureInput = $('#time');
+            var fileInput = $('#file');
+
+            if (egitimInput.val().trim() === '') {
+                showValidationError('Lütfen eğitim adını girin!');
+                egitimInput.focus();
+                return false;
+            }
+            if (kategoriSelect.val() === '') {
+                showValidationError('Lütfen bir kategori seçin!');
+                kategoriSelect.focus();
+                return false;
+            }
+            if (egitmenSelect.val() === '') {
+                showValidationError('Lütfen bir eğitmen seçin!');
+                egitmenSelect.focus();
+                return false;
+            }
+            if (kapasiteInput.val().trim() === '' || isNaN(kapasiteInput.val())) {
+                showValidationError('Lütfen geçerli bir kapasite değeri girin!');
+                kapasiteInput.focus();
+                return false;
+            }
+            if (maliyetInput.val().trim() === '' || isNaN(maliyetInput.val())) {
+                showValidationError('Lütfen geçerli bir maliyet değeri girin!');
+                maliyetInput.focus();
+                return false;
+            }
+            if (sureInput.val().trim() === '') {
+                showValidationError('Lütfen eğitim süresini girin!');
+                sureInput.focus();
+                return false;
+            }
+            if (fileInput.val().trim() === '') {
+                showValidationError('Lütfen dosya girin!');
+                fileInput.focus();
+                return false;
+            }
+            return true;
+        }
+        function showValidationError(message) {
+            Swal.fire({
+                title: 'Hata!',
+                text: message,
+                icon: 'error',
+                confirmButtonText: 'Tamam'
+            });
+        }
+    </script>
+</body>
+</html>

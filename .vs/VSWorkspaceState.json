@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\EducationPortal.API",
+    "\\EducationPortal.Business",
+    "\\EducationPortal.Business\\Abstract",
+    "\\EducationPortal.DataAccess",
+    "\\EducationPortal.Entity",
+    "\\EducationPortal.UI"
+  ],
+  "SelectedNode": "\\EducationPortal.UI\\Program.cs",
+  "PreviewInSolutionExplorer": false
+}

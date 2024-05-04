@@ -1,0 +1,69 @@
+﻿@using EducationPortal.Entity.Dto;
+@model EducationQueryDTO[];
+@{
+    Layout = null;
+    ViewBag.Title = "User Profile";
+}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<div class="container mt-5">
+    <div class="row gutters">
+        <div class="col-md-4">
+            <!-- Kullanıcı bilgileri -->
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white">
+                    Kullanıcı Bilgisi
+                </div>
+                <div class="card-body">
+                    <!-- Kullanıcı bilgilerini buraya ekleyin -->
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <!-- Eğitim Listesi -->
+            <div class="card mb-4">
+                <div class="card-header bg-success text-white">
+                    Eğitim Listesi
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Eğitim</th>
+                                    <th>Kategori</th>
+                                    <th>Eğitmen</th>
+                                    <th>Kontenjan</th>
+                                    <th>Süre</th>
+                                    <th>Maliyet</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var education in Model)
+                                {
+                                    <tr>
+                                        <td>@education.EducationName</td>
+                                        <td>@education.CategoryName</td>
+                                        <td>@education.EductorName</td>
+                                        <td>@education.Quota</td>
+                                        <td>@education.Time</td>
+                                        <td>@education.Cost</td>
+                                        <td><button class="btn btn-sm btn-success">Katıl</button></td>
+                                        <td><button class="btn btn-sm btn-danger">İptal</button></td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <!-- Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+}
+

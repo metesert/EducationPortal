@@ -1,0 +1,15 @@
+C:\Users\METE\Desktop\WORKSPACE\EducationPortal.UI\EducationPortal.DataAccess\bin\Debug\net6.0\EducationPortal.DataAccess.deps.json
+C:\Users\METE\Desktop\WORKSPACE\EducationPortal.UI\EducationPortal.DataAccess\bin\Debug\net6.0\EducationPortal.DataAccess.dll
+C:\Users\METE\Desktop\WORKSPACE\EducationPortal.UI\EducationPortal.DataAccess\bin\Debug\net6.0\EducationPortal.DataAccess.pdb
+C:\Users\METE\Desktop\WORKSPACE\EducationPortal.UI\EducationPortal.DataAccess\bin\Debug\net6.0\EducationPortal.Entity.dll
+C:\Users\METE\Desktop\WORKSPACE\EducationPortal.UI\EducationPortal.DataAccess\bin\Debug\net6.0\EducationPortal.Entity.pdb
+C:\Users\METE\Desktop\WORKSPACE\EducationPortal.UI\EducationPortal.DataAccess\obj\Debug\net6.0\EducationPortal.DataAccess.csproj.AssemblyReference.cache
+C:\Users\METE\Desktop\WORKSPACE\EducationPortal.UI\EducationPortal.DataAccess\obj\Debug\net6.0\EducationPortal.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\METE\Desktop\WORKSPACE\EducationPortal.UI\EducationPortal.DataAccess\obj\Debug\net6.0\EducationPortal.DataAccess.AssemblyInfoInputs.cache
+C:\Users\METE\Desktop\WORKSPACE\EducationPortal.UI\EducationPortal.DataAccess\obj\Debug\net6.0\EducationPortal.DataAccess.AssemblyInfo.cs
+C:\Users\METE\Desktop\WORKSPACE\EducationPortal.UI\EducationPortal.DataAccess\obj\Debug\net6.0\EducationPortal.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\METE\Desktop\WORKSPACE\EducationPortal.UI\EducationPortal.DataAccess\obj\Debug\net6.0\EducationPortal.DataAccess.csproj.CopyComplete
+C:\Users\METE\Desktop\WORKSPACE\EducationPortal.UI\EducationPortal.DataAccess\obj\Debug\net6.0\EducationPortal.DataAccess.dll
+C:\Users\METE\Desktop\WORKSPACE\EducationPortal.UI\EducationPortal.DataAccess\obj\Debug\net6.0\refint\EducationPortal.DataAccess.dll
+C:\Users\METE\Desktop\WORKSPACE\EducationPortal.UI\EducationPortal.DataAccess\obj\Debug\net6.0\EducationPortal.DataAccess.pdb
+C:\Users\METE\Desktop\WORKSPACE\EducationPortal.UI\EducationPortal.DataAccess\obj\Debug\net6.0\ref\EducationPortal.DataAccess.dll
