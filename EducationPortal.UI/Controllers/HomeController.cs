@@ -58,7 +58,7 @@ namespace EducationPortal.UI.Controllers
                             { "CategoryID", EducationProvider.CategoryID.ToString() },
                             { "Cost", EducationProvider.Cost.ToString() },
                             { "EductorID", EducationProvider.EductorID.ToString() },
-                            { "Time", EducationProvider.Time },
+                            { "Time", EducationProvider.Time.ToString() },
                             { "Quota", EducationProvider.Quota.ToString() }
                         }));
                 if (responseEducation.IsSuccessStatusCode)

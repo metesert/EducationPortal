@@ -26,6 +26,9 @@ builder.Services.AddScoped<IFilesService, FilesService>();
 builder.Services.AddScoped<ICategoryDal, CategoryDal>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 
+builder.Services.AddScoped<IProcessDal, ProcessDal>();
+builder.Services.AddScoped<IProcessService, ProcessService>();
+
 
 //builder.Services.AddCors(options =>
 //{

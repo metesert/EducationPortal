@@ -13,13 +13,14 @@ namespace EducationPortal.Business.Concrete
     public class FilesService : IFilesService
     {
         private readonly IFilesDal _filesDal;
+
         public FilesService(IFilesDal filesDal)
         {
             _filesDal = filesDal;
         }
-        public void Delete(TblEducationFile entity)
+        public async Task Delete(int id)
         {
-            _filesDal.Delete(entity);
+            await _filesDal.Delete(id);
         }
 
         public List<TblEducationFile> GetAll()
@@ -44,25 +45,16 @@ namespace EducationPortal.Business.Concrete
 
         public void Insert(TblEducationFile entity)
         {
-
             _filesDal.Insert(entity);
         }
 
         public async Task InsertAsync(TblEducationFile entity)
         {
-            try
-            {
-                await _filesDal.InsertAsync(entity);
-            }
-            catch (Exception ex)
-            {
-
-            }
+            await _filesDal.InsertAsync(entity);
         }
-
-        public void Update(TblEducationFile entity)
+        public async Task Update(int id, TblEducationFile entity)
         {
-            _filesDal.Update(entity);
+            await _filesDal.Update(id, entity);
         }
     }
 }

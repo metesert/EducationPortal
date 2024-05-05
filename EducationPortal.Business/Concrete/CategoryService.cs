@@ -2,11 +2,6 @@
 using EducationPortal.DataAccess.Abstract;
 using EducationPortal.DataAccess.Concrete;
 using EducationPortal.UI;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EducationPortal.Business.Concrete
 {
@@ -17,9 +12,9 @@ namespace EducationPortal.Business.Concrete
         {
             _categoryDal = educationDal;
         }
-        public void Delete(TblCategory entity)
+        public async Task Delete(int id)
         {
-            _categoryDal.Delete(entity);
+            await _categoryDal.Delete(id);
         }
         public List<TblCategory> GetAll()
         {
@@ -45,9 +40,9 @@ namespace EducationPortal.Business.Concrete
         {
             await _categoryDal.InsertAsync(entity);
         }
-        public void Update(TblCategory entity)
+        public async Task Update(int id, TblCategory entity)
         {
-            _categoryDal.Update(entity);
+            await _categoryDal.Update(id, entity);
         }
     }
 }

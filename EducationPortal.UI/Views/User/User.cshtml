@@ -5,10 +5,28 @@
     ViewBag.Title = "User Profile";
 }
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    function downloadFile(fileName, fileData) {
+        var blob = new Blob([fileData]);
+
+        var link = document.createElement('a');
+        link.href = window.URL.createObjectURL(blob);
+        link.download = fileName;
+
+        document.body.appendChild(link);
+
+        link.click();
+
+        document.body.removeChild(link);
+    }
+</script>
+
 
 <div class="container mt-5">
     <div class="row gutters">
-        <div class="col-md-4">
+@*         <div class="col-md-12">
             <!-- Kullanıcı bilgileri -->
             <div class="card mb-4">
                 <div class="card-header bg-primary text-white">
@@ -18,8 +36,8 @@
                     <!-- Kullanıcı bilgilerini buraya ekleyin -->
                 </div>
             </div>
-        </div>
-        <div class="col-md-8">
+        </div> *@
+        <div class="col-md-12">
             <!-- Eğitim Listesi -->
             <div class="card mb-4">
                 <div class="card-header bg-success text-white">
@@ -30,6 +48,7 @@
                         <table class="table table-striped">
                             <thead>
                                 <tr>
+                                    <th>Kod</th>
                                     <th>Eğitim</th>
                                     <th>Kategori</th>
                                     <th>Eğitmen</th>
@@ -43,14 +62,30 @@
                                 @foreach (var education in Model)
                                 {
                                     <tr>
+                                        <td>@education.EducationId</td>
                                         <td>@education.EducationName</td>
                                         <td>@education.CategoryName</td>
                                         <td>@education.EductorName</td>
                                         <td>@education.Quota</td>
                                         <td>@education.Time</td>
                                         <td>@education.Cost</td>
-                                        <td><button class="btn btn-sm btn-success">Katıl</button></td>
-                                        <td><button class="btn btn-sm btn-danger">İptal</button></td>
+                                        <td>
+                                            @if (education.File != null && education.File.Length > 0)
+                                            {
+                                                string fileName = education.FileName;
+
+                                                <a href="javascript:void(0);" onclick="downloadFile('@fileName', '@Convert.ToBase64String(education.File)')">Dosyayı İndir</a>
+                                            }
+
+
+                                            else
+                                            {
+                                                <span>Dosya bulunamadı</span>
+                                            }
+                                        </td>
+
+                                        <td> <button class="btn btn-sm btn-success join-button" data-education-id="@education.EducationId" data-user-id="1">Katıl</button></td>
+                                        <td> <button class="btn btn-sm btn-primary join-button" data-education-id="@education.EducationId" data-user-id="1">Tamamla</button></td>
                                     </tr>
                                 }
                             </tbody>
@@ -67,3 +102,29 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 }
 
+<script>
+    $(document).ready(function () {
+        $('.join-button').click(function () {
+            var educationId = $(this).data('education-id');
+            var userId = $(this).data('user-id');
+
+            $.ajax({
+                type: "POST",
+                url: "/User/joinEducation",
+                data: {
+                    EducationId: educationId,
+                    UserId: userId
+                },
+
+                success: function (response) {
+                    Swal.fire("Eklendi", "", "success")
+                    console.log(response);
+                },
+                error: function (xhr, status, error) {
+                    Swal.fire("Hata!", "Ekleme işlemi sırasında bir hata oluştu.", "error");
+                    console.error(xhr.responseText);
+                }
+            });
+        });
+    });
+</script>

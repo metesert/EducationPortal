@@ -20,7 +20,7 @@ namespace EducationPortal.Entity.Dto
         [Required]
         public decimal Cost { get; set; }
         [Required]
-        public string Time { get; set; }
+        public TimeSpan Time { get; set; }
 
         public string CategoryName { get; set; }
 

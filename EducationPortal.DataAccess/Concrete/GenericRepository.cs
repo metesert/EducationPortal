@@ -17,10 +17,11 @@ namespace EducationPortal.DataAccess.Concrete
             context = ctx;
         }
 
-        public void Delete(TEntity entity)
+        public async Task Delete(int id)
         {
+            var entity = await GetByIdAsync(id);
             context.Set<TEntity>().Remove(entity);
-            context.SaveChanges();
+            await context.SaveChangesAsync();
         }
 
         public List<TEntity> GetAll()
@@ -53,10 +54,11 @@ namespace EducationPortal.DataAccess.Concrete
             await context.Set<TEntity>().AddAsync(entity);
             await context.SaveChangesAsync();
         }
-        public virtual void Update(TEntity entity)
+        public async Task Update(int id, TEntity entity)
         {
             context.Entry(entity).State = EntityState.Modified;
-            context.SaveChangesAsync();
+            context.Set<TEntity>().Update(entity);
+            await context.SaveChangesAsync();
         }
 
     }

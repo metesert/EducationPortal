@@ -15,7 +15,7 @@ namespace EducationPortal.UI.Models
         [Required(ErrorMessage = "Eğitmen bilgisi gereklidir.")]
         public int EductorID { get; set; }
         [Required(ErrorMessage = "Eğitim süresi gereklidir.")]
-        public string Time { get; set; }
+        public TimeSpan Time { get; set; }
         [Required(ErrorMessage = "Eğitmen kapasitesi gereklidir.")]
         public int Quota { get; set; }
         [Required(ErrorMessage = "Dosya seçilmelidir.")]

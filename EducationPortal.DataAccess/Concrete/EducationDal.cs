@@ -22,16 +22,18 @@ namespace EducationPortal.DataAccess.Concrete
             var query = await (from a in _context.TblEducations
                                join b in _context.TblCategories on a.CategoryId equals b.Id
                                join c in _context.TblEducators on a.EductorId equals c.Id
-                             //  join e in _context.TblEducationFiles on a.Id equals e.EducationId
+                               join d in _context.TblEducationFiles on a.Id equals d.EducationId
                                select new EducationQueryDTO
                                {
+                                   EducationId = a.Id,
                                    EducationName = a.Name,
                                    CategoryName = b.Name,
                                    EductorName = c.Name,
                                    Quota = a.Quota,
                                    Time = a.Time,
                                    Cost = a.Cost,
-//                                   File = e.Files
+                                   File = d.Files,
+                                   FileName = d.Name
                                }).ToListAsync();
             var result = query;
             return result;

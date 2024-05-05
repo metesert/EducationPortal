@@ -19,9 +19,9 @@ namespace EducationPortal.Business.Concrete
         {
             _educationDal = educationDal;
         }
-        public void Delete(TblEducation entity)
+        public async Task Delete(int id)
         {
-            _educationDal.Delete(entity);
+            await _educationDal.Delete(id);
         }
         public List<TblEducation> GetAll()
         {
@@ -47,9 +47,9 @@ namespace EducationPortal.Business.Concrete
         {
             await _educationDal.InsertAsync(entity);
         }
-        public void Update(TblEducation entity)
+        public async Task Update(int id, TblEducation entity)
         {
-            _educationDal.Update(entity);
+            await _educationDal.Update(id, entity);
         }
         public async Task<List<EducationQueryDTO>> EducationQuery()
         {

@@ -14,7 +14,7 @@ namespace EducationPortal.DataAccess.Abstract
         Task<List<T>> GetAllAsync();
         void Insert(T entity);
         Task InsertAsync(T entity);
-        void Update(T entity);
-        void Delete(T entity);
+        Task Update(int id, T entity);
+        Task Delete(int id);
     }
 }

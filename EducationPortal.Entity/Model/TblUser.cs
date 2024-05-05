@@ -3,21 +3,19 @@ using System.Collections.Generic;
 
 namespace EducationPortal.UI;
 
-public partial class TblEducation
+public partial class TblUser
 {
     public int Id { get; set; }
 
     public string Name { get; set; } = null!;
 
-    public int CategoryId { get; set; }
+    public string Surname { get; set; } = null!;
 
-    public int EductorId { get; set; }
+    public string Username { get; set; } = null!;
 
-    public int Quota { get; set; }
+    public string Password { get; set; } = null!;
 
-    public decimal Cost { get; set; }
-
-    public TimeSpan Time { get; set; }
+    public string Email { get; set; } = null!;
 
     public DateTime CreateDate { get; set; }
 
