@@ -22,7 +22,6 @@ namespace EducationPortal.Entity.Dto
         [Required]
         public TimeSpan Time { get; set; }
 
-        public string CategoryName { get; set; }
 
 
     }

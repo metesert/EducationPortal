@@ -9,6 +9,8 @@ namespace EducationPortal.DataAccess.Abstract
 {
     public interface IFilesDal : IGenericRepository<TblEducationFile>
     {
+
+
        
     }
 }

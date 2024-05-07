@@ -14,6 +14,9 @@ namespace EducationPortal.DataAccess.Abstract
     {
 
         public Task<List<EducationQueryDTO>> EducationQuery();
- 
+
+        
+
+
     }
 }

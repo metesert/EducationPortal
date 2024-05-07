@@ -21,3 +21,4 @@ namespace EducationPortal.Entity.Dto
         public byte[] File { get; set; }
     }
 }
+
